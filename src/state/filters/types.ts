@@ -1,10 +1,3 @@
-export const ADD_FILTER = 'ADD_FILTER'
-
-//export type Filters = [string]
-
-//export interface addFilter {
-    //type: typeof ADD_FILTER
-    //filterData: {
-        //filterId
-    //}
-//}
+export const TOGGLE_HORSE_FILTER = 'TOGGLE_HORSE_FILTER'
+export const TOGGLE_HARNESS_FILTER = 'TOGGLE_HARNESS_FILTER'
+export const TOGGLE_GREYHOUND_FILTER = 'TOGGLE_GREYHOUND_FILTER'

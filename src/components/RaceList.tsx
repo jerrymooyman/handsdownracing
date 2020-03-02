@@ -6,11 +6,11 @@ import RaceListItem from './RaceListItem'
 
 class RaceList extends Component {
   render() {
-    const { races } = this.props
+    const { nextRaces} = this.props
     return (
       <FlatList
         style={styles.container}
-        data={races}
+        data={nextRaces}
         renderItem={({ item }) => (
           <RaceListItem key={item.race_id} race={item} />
         )}
@@ -21,7 +21,7 @@ class RaceList extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    races: state.races
+    nextRaces: state.nextRaces
     //raceSummaries: state.races.race_summaries,
     //nextToGoIds: state.races.next_to_go_ids
   }

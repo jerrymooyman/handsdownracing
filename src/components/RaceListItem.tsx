@@ -3,6 +3,14 @@ import { StyleSheet, Text, View } from 'react-native'
 import { secondsFromDate, epochToJsDate } from '../utils/dateUtil'
 import { categoryById } from '../utils/raceCategory'
 
+const Icon = ({ children }) => {
+  return (
+    <View style={styles.icon}>
+      <Text>{children}</Text>
+    </View>
+  )
+}
+
 export default class RaceListItem extends Component {
   render() {
     const { race } = this.props
@@ -10,13 +18,13 @@ export default class RaceListItem extends Component {
     const category = categoryById(race.category_id)
     return (
       <View key={race.race_id} style={styles.container}>
-        <View style={styles.meetName}>
-          <Text>{category}</Text>
-          <Text>{race.meeting_name}</Text>
+        <View style={styles.leftSide}>
+          <Icon>{category}</Icon>
+          <Text style={styles.meetName}>{race.meeting_name}</Text>
         </View>
-        <View style={styles.raceNumber}>
-          <Text>R{race.race_number}</Text>
-          <Text>{secondsToStart.toLocaleString()}</Text>
+        <View style={styles.rightSide}>
+          <Text style={styles.time}>{secondsToStart.toLocaleString()}</Text>
+          <Icon>R{race.race_number}</Icon>
         </View>
       </View>
     )
@@ -30,10 +38,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     height: 60,
-    borderWidth: 0.2
+    borderWidth: 1
+  },
+  leftSide: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 10
   },
   meetName: {
-    flexDirection: 'row'
+    marginLeft: 10
   },
-  raceNumber: {}
+  rightSide: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginRight: 10
+  },
+  time: {
+    marginRight: 10
+  },
+  icon: {
+    borderWidth: 1,
+    borderRadius: 50,
+    padding: 10
+  }
 })

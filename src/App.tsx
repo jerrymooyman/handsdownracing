@@ -5,9 +5,12 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import { getStore } from './state/store'
 import RaceListScreen from './screens/RaceListScreen'
+import {fetchRacingData} from './state/races/actions'
 
 const store = getStore()
 const Stack = createStackNavigator()
+
+store.dispatch(fetchRacingData())
 
 export default function App() {
   return (

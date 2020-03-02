@@ -1,6 +1,7 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import reducers from './reducers'
-import {organise} from '../utils/raceDataOriganise'
+import { organiseRaceSummaries } from '../utils/raceDataOriganise'
 
 const next_to_go_ids = [
   '3ea76585-f06b-4f37-b400-5e500e7242b3',
@@ -386,7 +387,8 @@ const race_summaries = {
 }
 
 const initState = {
-  races: organise(next_to_go_ids, race_summaries)
+  nextRaces: [],
+  raceSummaries: [],
 }
 
-export const getStore = (state = initState) => createStore(reducers, state)
+export const getStore = () => createStore(reducers, applyMiddleware(thunk))
