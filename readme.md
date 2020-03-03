@@ -28,14 +28,14 @@ create a sample test for <RaceFilter />, but got the following error. didn't get
 - in the past we have found snapshot testing provided limited value.
 
 * typescript - really interested in using this
-** have used propTypes on past projects, but typescript interfaces look at lot more promising
+  * have used propTypes on past projects, but typescript interfaces look at lot more promising
 
 * behaviour testing
-** have used enzyme on past projects
+  * have used enzyme on past projects
 
 * e2e testing
-** have used apium, with limited success.
-** in the last project we decided to exercise the code from the business logic layer to the backend.
+  * have used apium, with limited success.
+  * in the last project we decided to exercise the code from the business logic layer to the backend.
 
 * Story Book - used it in previous projects
 * Atomic Design - a way to organise components
