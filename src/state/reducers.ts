@@ -19,11 +19,12 @@ const applyFilters = (state, action) => {
   const raceSummaries = state.raceSummaries
 
   const filterArray = []
-  //if (horse) filterArray.push(CATEGORY_HORSE)
+  if (horse) filterArray.push(CATEGORY_HORSE)
   if (harness) filterArray.push(CATEGORY_HARNESS)
   if (greyhound) filterArray.push(CATEGORY_GREYHOUND)
 
-  if (filterArray.length === 0) return raceSummaries
+  if (filterArray.length === 0) return raceSummaries.slice(0, 5)
+
   return raceSummaries
     .filter(r => filterArray.includes(r.category_id))
     .slice(0, 5)

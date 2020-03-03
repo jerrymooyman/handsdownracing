@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { secondsFromDate, epochToJsDate } from '../utils/dateUtil'
+import { secondsFromDate } from '../utils/dateUtil'
 import { categoryById } from '../utils/raceCategory'
 
 const Icon = ({ children }) => {

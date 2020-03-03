@@ -1,6 +1,5 @@
 import { FETCH_RACING_DATA } from './types'
-
-const url = 'https://api.neds.com.au/rest/v1/racing/?method=nextraces&count=15'
+import config from '../../config'
 
 const fetchData = data => {
   return {
@@ -12,7 +11,7 @@ const fetchData = data => {
 export const fetchRacingData = () => {
   return async dispatch => {
     try {
-      let response = await fetch(url)
+      let response = await fetch(config.api_url)
       let responseJson = await response.json()
       return dispatch(fetchData(responseJson))
     } catch (error) {

@@ -1,8 +1,9 @@
-import { ADD_FILTER } from './types'
+import {
+  TOGGLE_HORSE_FILTER,
+  TOGGLE_HARNESS_FILTER,
+  TOGGLE_GREYHOUND_FILTER
+} from './types'
 
-export const addFilter = (filterId: String) => ({
-  type: ADD_FILTER,
-  data: {
-    filterId
-  }
+export const toggleFilter = filter => ({
+  type: filter
 })
