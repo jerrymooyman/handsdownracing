@@ -7,6 +7,8 @@ import {
   CATEGORY_HARNESS,
   CATEGORY_GREYHOUND
 } from './constants'
+import { secondsFromDate } from '../utils/dateUtil'
+import config from '../config'
 
 const combineReducer = combineReducers({
   raceSummaries: racesReducer,
@@ -27,6 +29,7 @@ const applyFilters = (state, action) => {
 
   return raceSummaries
     .filter(r => filterArray.includes(r.category_id))
+    .filter(r => secondsFromDate(r.advertised_start.seconds) > config.race_display_expiry)
     .slice(0, 5)
 }
 
