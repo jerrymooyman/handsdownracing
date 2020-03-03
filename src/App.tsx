@@ -2,7 +2,6 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-
 import { getStore } from './state/store'
 import RaceListScreen from './screens/RaceListScreen'
 import { fetchRacingData } from './state/races/actions'
@@ -14,7 +13,7 @@ const intervalDataFetcher = () => {
   store.dispatch(fetchRacingData())
   setInterval(() => {
     store.dispatch(fetchRacingData())
-  }, 30000)
+  }, 10000)
 }
 
 intervalDataFetcher()

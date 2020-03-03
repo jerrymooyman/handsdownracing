@@ -1,4 +1,4 @@
-import { FETCH_RACING_DATA, PURGE_EXPIRED_RACES } from './types'
+import { FETCH_RACING_DATA } from './types'
 import { organiseRaceSummaries } from '../../utils/raceDataOriganise'
 
 export default (state = [], action) => {
