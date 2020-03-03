@@ -7,7 +7,7 @@ import {
   TOGGLE_GREYHOUND_FILTER,
   TOGGLE_HARNESS_FILTER
 } from '../state/filters/types'
-import { toggleHorseFilter, toggleFilter } from '../state/filters/actions'
+import { toggleFilter } from '../state/filters/actions'
 
 const getFilterStyle = enabled =>
   enabled ? { ...styles.filter, ...styles.enabled } : styles.filter

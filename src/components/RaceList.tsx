@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, RefreshControl } from 'react-native'
 import { FlatList } from 'react-native-gesture-handler'
 import { connect } from 'react-redux'
 import RaceListItem from './RaceListItem'
+import { fetchRacingData } from '../state/races/actions'
 
 class RaceList extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class RaceList extends Component {
   }
 
   onRefresh() {
-    console.log(`====== refreshing`)
+    this.props.fetchRacingData()
   }
 
   render() {
@@ -27,7 +28,7 @@ class RaceList extends Component {
           <RaceListItem key={item.race_id} race={item} />
         )}
         refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={this.onRefresh} />
+          <RefreshControl refreshing={refreshing} onRefresh={this.onRefresh.bind(this)} />
         }
       />
     )
@@ -41,8 +42,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onClick: () => {
-      //dispatch(setVisibilityFilter(ownProps.filter))
+    fetchRacingData: () => {
+      dispatch(fetchRacingData())
     }
   }
 }
@@ -51,11 +52,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(RaceList)
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
-    //backgroundColor: 'red',
     flexGrow: 1
-    //alignItems: 'center',
-    //justifyContent: 'center',
-    //borderWidth: 1
   }
 })
