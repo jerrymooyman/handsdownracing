@@ -11,7 +11,7 @@ Features
 * continue to display races that have started. eventually removed 1 minute after race start. (logic needs inprovement)
 
 * Redux & Redux thunk for calling api
-** NB: haven't used redux for a while, so had to relearn it.
+  * NB: haven't used redux for a while, so had to relearn it.
 
 
 Wanted to do, but ran out of time
