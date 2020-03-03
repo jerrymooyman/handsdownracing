@@ -13,7 +13,7 @@ export const fetchRacingData = () => {
     try {
       let response = await fetch(config.api_url)
       let responseJson = await response.json()
-      return dispatch(fetchData(responseJson))
+      dispatch(fetchData(responseJson))
     } catch (error) {
       // TODO: do something meaningful here. i.e. send to ELK
       console.log(`========= error: ${JSON.stringify(error)}`)

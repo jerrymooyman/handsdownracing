@@ -10,7 +10,14 @@ import { fetchRacingData } from './state/races/actions'
 const store = getStore()
 const Stack = createStackNavigator()
 
-store.dispatch(fetchRacingData())
+const intervalDataFetcher = () => {
+  store.dispatch(fetchRacingData())
+  setInterval(() => {
+    store.dispatch(fetchRacingData())
+  }, 30000)
+}
+
+intervalDataFetcher()
 
 export default function App() {
   return (
